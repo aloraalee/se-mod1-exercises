@@ -21,7 +21,7 @@ RSpec.describe 'Strings' do
   xit 'test 3' do
     name = "AlIcE"
     # In place of the line below, call a method to achieve the expected output.
-    actual = name._____
+    actual = name.downcase
     expected = "alice"
 
     expect(actual).to eq(expected)
@@ -30,7 +30,7 @@ RSpec.describe 'Strings' do
   xit 'test 4' do
     rhyme = "peter piper picked a peck of picked peppers"
     # In place of the line below, call a method to achieve the expected output.
-    actual = rhyme._____
+    actual = rhyme.reverse
     expected = "sreppep dekcip fo kcep a dekcip repip retep"
 
     expect(actual).to eq(expected)
@@ -39,7 +39,7 @@ RSpec.describe 'Strings' do
   xit 'test 5' do
     word = "ticking"
     # In place of the line below, call a method to achieve the expected output.
-    actual = word.______
+    actual = word.sub "t", "k"
     expected = "kicking"
 
     expect(actual).to eq(expected)
@@ -48,7 +48,7 @@ RSpec.describe 'Strings' do
   xit 'test 6' do
     word = "ticking"
     # In place of the line below, call a method to achieve the expected output.
-    actual = word.______
+    actual = word.replace("clocking")
     expected = "clocking"
 
     expect(actual).to eq(expected)
@@ -57,7 +57,7 @@ RSpec.describe 'Strings' do
   xit 'test 7' do
     words = "five sleepy kittens"
     # In place of the line below, call a method to achieve the expected output.
-    actual = words.______
+    actual = words.gsub! 'e' , '*'
     expected = "fiv* sl**py kitt*ns"
 
     expect(actual).to eq(expected)
