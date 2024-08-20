@@ -108,69 +108,69 @@ RSpec.describe 'Arrays' do
     expect(some_teams).to eq(["Rockies", "Avalanche"])
   end
 
-  xit 'test 10' do
+  it 'test 10' do
     fourteeners = ["Pikes Peak", nil, "Mount Elbert", nil, "Mount Evans"]
     # Call a method on the fourteeners variable to remove the nils
-    fourteeners = fourteeners
+    fourteeners = fourteeners.compact
     expect(fourteeners).to eq(["Pikes Peak", "Mount Elbert", "Mount Evans"])
   end
 
-  xit 'test 11' do
+  it 'test 11' do
     pokemon = [["Squirtle", "Charmander", "Bulbasaur"], ["Pikachu"], "Staryu"]
     # Call a method on the pokemon variable to remove the nesting
-    pokemon = pokemon
+    pokemon = pokemon.flatten!
     expect(pokemon).to eq(["Squirtle", "Charmander", "Bulbasaur", "Pikachu", "Staryu"])
   end
 
-  xit 'test 12' do
+  it 'test 12' do
     scores = [23, 56, 34, 29, 48]
     # Call a method on the scores variables that will
     # move the elements two spots to the left
-    new_scores = scores
+    new_scores = scores.rotate(2)
     expect(new_scores).to eq([34, 29, 48, 23, 56])
 
     # Now call a method on the scores variables that will
     # move the elements one spot to the right
-    new_scores = scores
+    new_scores = scores.rotate(-1)
     expect(new_scores).to eq([48, 23, 56, 34, 29])
   end
 
-  xit 'test 13' do
+  it 'test 13' do
     vowels = ["a", "e", "y", "i", "o", "u", "y"]
     # Call a method on the vowels variable to remove "y"
-
+    vowels.delete("y")
     expect(vowels).to eq(["a", "e", "i", "o", "u"])
   end
 
-  xit 'test 14' do
+  it 'test 14' do
     furniture = ["couch", "bed", "table"]
     # Call a method on the furniture variable to add the element
     # "dresser" in between the elements "couch" and "bed"
-    new_furniture = furniture
+    new_furniture = furniture.insert(1, "dresser")
     expect(new_furniture).to eq(["couch", "dresser", "bed", "table"])
   end
 
-  xit 'test 15' do
+  it 'test 15' do
     children = ["Sarah", "Owen", "Peter"]
     # Call a method on the children variable to combine them into
     # one string like this: "Sarah, Owen, Peter"
-    one_string = children
+    one_string = children.join(", ")
     expect(one_string).to eq("Sarah, Owen, Peter")
   end
 
-  xit 'test 16' do
+  it 'test 16' do
     ascending = [1,2,3,4,5]
     # Call a method on the ascending variable to create an array
     # with the elements in the opposite order
-    descending = ascending
+    descending = ascending.reverse
     expect(descending).to eq([5,4,3,2,1])
   end
 
-  xit 'test 17' do
+  it 'test 17' do
     dice = [1,2,3,4,5,6]
     # Call a method on the dice variable to get a random element out
     # of the array
-    roll = dice
+    roll = dice[rand(dice.length)]
     expect(roll <= 6).to eq(true)
     expect(roll >= 1).to eq(true)
     # Note, this assertion assumes the Ruby Version is 2.4 or higher.
