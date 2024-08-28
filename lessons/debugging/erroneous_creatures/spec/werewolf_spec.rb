@@ -22,8 +22,8 @@ RSpec.describe Werewolf do
   it "can change" do
     werewolf = Werewolf.new("David","London")
 
-    expect(werewolf.respond_to?).to eq(:change!)
-  end
+    expect(werewolf.respond_to?(:change!)).to eq(true)
+    end
 
   it "when starting as a human changing means it is no longer human" do
     werewolf = Werewolf.new("David","London")
