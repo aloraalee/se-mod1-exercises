@@ -102,20 +102,35 @@ denver_biscuit_co = {
     ]
 }
 
-
 # Challenge 1:
 # Return the name ("Denver Biscuit")
+puts denver_biscuit_co[:name]
 # Return the rating (4.5)
+puts denver_biscuit_co[:rating]
 # Return a list of accepted transactions (["pickup", "delivery"])
+puts denver_biscuit_co[:transactions]
 # Return the first listed category title ("Sandwiches")
+puts denver_biscuit_co[:categories].first[:title]
+# or your could write 
+puts denver_biscuit_co[:categories][0][:title]
 # Return the opening hour on Tuesday (day 1) ("0800")
+puts denver_biscuit_co[:hours][0][:open][0][:start]
 # Return the closing hour on Saturday (day 5) ("1500")
+puts denver_biscuit_co[:hours][0][:open][5][:end]
 # Return the current open status (is_now_open) (true)
+puts denver_biscuit_co[:hours][0][:is_open_now]
 
 # Challenge 2: 
 # Get the address, and return it into a readable format. ("3237 E Colfax Ave, Denver, CO 80206" )
+address = "#{denver_biscuit_co[:location][:address1]}, #{denver_biscuit_co[:location][:city]}, #{denver_biscuit_co[:location][:state]} #{denver_biscuit_co[:location][:zip_code]}"
+puts address
 # Return a list of categories this restaurant fits into (["Sandwiches", "Breakfast & Brunch"])
-
+categories = []
+sandwiches = denver_biscuit_co[:categories][0][:title]
+categories << sandwiches
+break_brunch = denver_biscuit_co[:categories][1][:title] 
+categories << break_brunch
+puts categories
 
 # Challenge 3 (extra spicy): 
 # Get the operation hours, and format a return value such that it looks like this: 
@@ -139,3 +154,4 @@ denver_biscuit_co = {
 
 # }
 # Note: day 0 is Monday, day 6 is Sunday
+
