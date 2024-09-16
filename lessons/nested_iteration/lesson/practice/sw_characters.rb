@@ -209,26 +209,50 @@ characters = [
     }
 ]
 
+# characters.each do |character|
+#     character.each do |trait, value|
+#         if trait == "films"
+#             value.each do |film_name|
+#             end
+#         end
+#     end
+# end
+
 
 # Challenge #1 
-
 # Get a unique list of the homeworlds
-
 # ["Tatooine", "Naboo", "Alderaan" ... ]
+
+#I want to return an array of homeworlds
+# outter is an array and inside is a hash
+#inside of the hash I have a string key and string value for homeworld
+
+homeworlds = characters.map do |character|
+    character[:homeworld]
+end.compact.uniq 
+puts homeworlds
 
 
 # Challenge #2
-
 # Get a list of the characters who have starships
-
 # ["Luke Skywalker", "Darth Vader", "Biggs Darklighter" ... ]
 
+# I want to create an array of names if the character has a starship
+
+
+have_starships = characters.find_all do |character|
+    !character[:starships].empty?
+end
+
+character_names = have_starships.map do |character|
+    character[:name]
+end
+
+puts character_names
 
 
 # CHALLENGE #3
-
 # Create a new hash such that each character points to their collection of starships: 
-
 # {
 #     "Luke Skywalker" => ["T-65 X-Wing", "Lambda-class T-4A Shuttle"],
 #     "C-3PO" => [],
@@ -241,9 +265,7 @@ characters = [
 
 
 # Challenge #4 
-
 # Create a new hash such that each movie points to a collection of characters 
-
 # {
 #     "A New Hope" => ["Luke Skywalker", "C-3PO", ... ],
 #     "The Empire Strikes Back" => ["Luke Skywalker", "C-3PO" ... ], 
