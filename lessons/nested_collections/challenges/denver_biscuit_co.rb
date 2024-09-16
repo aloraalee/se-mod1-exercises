@@ -155,3 +155,26 @@ puts categories
 # }
 # Note: day 0 is Monday, day 6 is Sunday
 
+# Initialize an empty hash to store the formatted operation hours
+operation_hours = {}
+
+# Create an array of day names 
+days_of_week = ["Monday", "Tuesday", "Wednesday"]
+
+# Iterate over each day's information in the denver_biscuit_co hours data
+denver_biscuit_co[:hours][0][:open].each do |day_info|
+    # Get the day name by using the numeric day as an index in the days_of_week array
+    day_name = days_of_week[day_info[:day]]
+    
+    # Create a new entry in the operation_hours hash for this day
+    operation_hours[day_name] = {
+        # Set the start time for this day
+        start: day_info[:start],
+        # Set the end time for this day
+        end: day_info[:end]
+    }
+end
+
+# Print the resulting operation_hours hash
+puts operation_hours
+
