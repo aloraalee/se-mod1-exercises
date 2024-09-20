@@ -50,11 +50,18 @@ RSpec.describe Werewolf do
   end
 
   it 'is not hungry by default' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+
+    expect(werewolf.hungry?). to be(false)
   end
 
   it 'becomes hungry after changing to a werewolf' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+   
+    werewolf.change!
+
+    expect(werewolf.hungry?).to eq(true)
+
   end
 
   class Victim
@@ -66,19 +73,41 @@ RSpec.describe Werewolf do
   end
 
   it 'consumes a victim' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    werewolf.change!
+
+    expect(werewolf.consume_victim).to eq("You ate a victim.")
   end
 
   it 'cannot consume a victim if it is in human form' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+
+    werewolf.change!
+    expect(werewolf.wolf?).to be true
+
+    werewolf.change!
+
+    expect(werewolf.wolf?).to be false
+
+    expect(werewolf.consume_victim).to eq("Your victim was safe this time.")
   end
 
   it 'a werewolf that has consumed a human being is no longer hungry' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    werewolf.change!
+
+    expect(werewolf.consume_victim).to eq("You ate a victim.")
+
+    expect(werewolf.hungry?).to eq(false)
   end
 
   it 'a werewolf who has consumed a victim makes the victim dead' do
-    # your code here
+    werewolf = Werewolf.new('David', 'London')
+    werewolf.change!
+
+    werewolf.consume_victim
+    
+    expect(werewolf.check_victim_status).to eq("dead")
   end
 
 end
