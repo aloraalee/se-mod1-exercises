@@ -27,5 +27,31 @@ class Reunion
     reunion_cost_hash.values.sum
   end
 
+  def total_owed_per_participant
+    final_owed = {}
+
+    @activities.each do |activity|
+
+      activity.owed.each do |participant, amount|
+        if !final_owed.has_key?(participant)
+          final_owed[participant] = amount
+        else
+          final_owed[participant] += amount
+        end
+      end
+    end
+    final_owed
+  end
   
+  def print_summary
+    total_owed_per_participant.each do |participant, amount|
+      if amount > 0
+        puts "#{participant}: owes $#{'%.2f' % amount}"
+      elsif amount < 0 
+        puts "#{participant}: is owed $#{'%.2f' % amount.abs}"
+      else
+        puts "#{name}: is all settled up"
+      end
+    end
+  end
 end
