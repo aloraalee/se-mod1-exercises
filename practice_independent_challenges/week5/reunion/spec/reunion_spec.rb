@@ -11,3 +11,9 @@ RSpec.describe Reunion do
       expect(@reunion.name).to eq("1406 BE")
     end
   end
+
+  it 'has activites' do
+    expect(@reunion.activities).to eq([])
+  end
+
+end
